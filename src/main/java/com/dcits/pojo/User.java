@@ -1,7 +1,6 @@
 package com.dcits.pojo;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @author huangth tel:13246649002
@@ -58,5 +57,5 @@ public class User implements Serializable {
                 ", address='" + address + '\'' +
                 '}';
     }
-    
+
 }

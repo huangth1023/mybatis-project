@@ -2,12 +2,11 @@ package com.dcits;
 
 import com.dcits.mapper.UserMapper;
 import com.dcits.pojo.User;
-import org.apache.ibatis.io.Resources;
+import com.dcits.utils.FactoryUtils;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.log4j.Logger;
 
-import java.io.IOException;
+import java.util.List;
 
 /**
  * Hello world!
@@ -15,24 +14,40 @@ import java.io.IOException;
  */
 public class App {
 
+    private static Logger log = Logger.getLogger(App.class);
+
+    private static SqlSession sqlSession;
+    private static UserMapper userMapper;
+    static {
+        sqlSession = FactoryUtils.openSqlSession();
+        userMapper = sqlSession.getMapper(UserMapper.class);
+    }
+
     public static void main( String[] args ) {
 
-        String resource = "mybatis-config.xml";
+        //查
+//        User user = userMapper.findUserById("001");
+//        log.info(user);
 
-        try {
-
-            SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
-            SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(Resources.getResourceAsStream(resource));
-
-            SqlSession sqlSession = sqlSessionFactory.openSession();
-
-            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            User user = userMapper.findUserById("001");
-            System.out.println(user);
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        List<User> users = userMapper.findAll();
+        for (User user: users) {
+            log.debug(user);
         }
 
+//        User user = new User();
+//        user.setId("003");
+//        user.setName("陈文斌");
+//        user.setAge("31");
+//        user.setAddress("hahaha");
+//        user.setAddress("汇金中心6C");
+//        userMapper.insertUser(user);
+
+//        userMapper.deleteById("003");
+//        userMapper.updateUser(user);
+
+
+        sqlSession.commit();
+
     }
+
 }
