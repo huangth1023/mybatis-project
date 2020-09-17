@@ -31,7 +31,7 @@ public class App {
 
         List<User> users = userMapper.findAll();
         for (User user: users) {
-            log.debug(user);
+            log.info(user);
         }
 
 //        User user = new User();
@@ -47,6 +47,7 @@ public class App {
 
 
         sqlSession.commit();
+        sqlSession.close();
 
     }
 

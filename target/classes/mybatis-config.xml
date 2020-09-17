@@ -6,6 +6,10 @@
 
     <properties resource="jdbc.properties"/>
 
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
     <typeAliases>
         <typeAlias type="com.dcits.pojo.User" alias="user"/>
     </typeAliases>
