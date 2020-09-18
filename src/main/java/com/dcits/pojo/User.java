@@ -10,34 +10,43 @@ import java.io.Serializable;
  */
 public class User implements Serializable {
 
-    private String id;
-    private String name;
-    private String age;
+    private String userId;
+    private String userName;
+    private String userAge;
     private String address;
 
-
-    public String getId() {
-        return id;
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userAge='" + userAge + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getUserId() {
+        return userId;
     }
 
-    public String getName() {
-        return name;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getUserName() {
+        return userName;
     }
 
-    public String getAge() {
-        return age;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public String getUserAge() {
+        return userAge;
+    }
+
+    public void setUserAge(String userAge) {
+        this.userAge = userAge;
     }
 
     public String getAddress() {
@@ -47,15 +56,4 @@ public class User implements Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", age='" + age + '\'' +
-                ", address='" + address + '\'' +
-                '}';
-    }
-
 }

@@ -34,11 +34,11 @@ public class App {
             log.info(user);
         }
 
-//        User user = new User();
-//        user.setId("003");
-//        user.setName("陈文斌");
-//        user.setAge("31");
-//        user.setAddress("hahaha");
+        User user = new User();
+        user.setUserId("003");
+        user.setUserName("陈文斌");
+        user.setUserAge("31");
+        user.setAddress("hahaha");
 //        user.setAddress("汇金中心6C");
 //        userMapper.insertUser(user);
 
